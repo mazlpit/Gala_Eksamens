@@ -111,4 +111,122 @@ public class EksTests {
             "Gala rezultāti",
             JOptionPane.INFORMATION_MESSAGE);
     }
+     // Funkcija, kas izveido un atgriež jautājumu sarakstu
+    private static List<Question> createQuestions() {
+        List<Question> questions = new ArrayList<>();
+
+        questions.add(new Question(
+            "Kāda ir do-while cikla sintakse Java?",
+            new String[] {
+                "do { ... } while (nosacījums);",
+                "while (nosacījums) do { ... }",
+                "do while (nosacījums) { ... }",
+                "do (nosacījums) { ... } while;"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kāda ir galvenā atšķirība starp while un do-while ciklu?",
+            new String[] {
+                "do-while vienmēr izpilda kodu vismaz vienu reizi",
+                "while cikls vienmēr izpilda kodu vismaz vienu reizi",
+                "do-while nevar izmantot ar nosacījumiem",
+                "nav atšķirību"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kas notiks, ja do-while cikla nosacījums vienmēr būs true?",
+            new String[] {
+                "Cikls darbosies bezgalīgi",
+                "Cikls izpildīsies vienu reizi un apstāsies",
+                "Programma neizpildīsies",
+                "Kompilators izmetīs kļūdu"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Cik reizes izpildīsies šāds cikls: do { ... } while (false);",
+            new String[] {
+                "1",
+                "0",
+                "Bezgalīgi daudz",
+                "2"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kā pareizi pārtraukt do-while ciklu pirms nosacījuma pārbaudes?",
+            new String[] {
+                "Izmantot break;",
+                "Izmantot exit;",
+                "Izmantot stop;",
+                "Do-while ciklu nevar pārtraukt pirms nosacījuma pārbaudes"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kāda būs mainīgā x vērtība pēc šāda cikla izpildes?\nint x = 5; do { x++; } while (x < 10);",
+            new String[] {
+                "10",
+                "9",
+                "11",
+                "5"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Vai do-while cikla nosacījums tiek pārbaudīts pirms koda izpildes?",
+            new String[] {
+                "Nē, tiek pārbaudīts pēc koda izpildes",
+                "Jā, tāpat kā while ciklā",
+                "Tikai tad, ja izmanto speciālu atslēgvārdu",
+                "Jā, bet tikai pirmajā iterācijā"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kādu rezultātu izvadīs šis kods?\nint i = 0; do { System.out.print(i + \" \"); i++; } while (i > 0 && i < 3);",
+            new String[] {
+                "0 1 2",
+                "1 2",
+                "0 1 2 3",
+                "Bezgalīga izvade"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Vai do-while ciklā var izmantot vairākus nosacījumus?",
+            new String[] {
+                "Jā, izmantojot loģiskos operatorus (&&, ||)",
+                "Nē, do-while cikls atļauj tikai vienu nosacījumu",
+                "Jā, bet tikai ar speciālu sintaksi",
+                "Nē, nosacījumi nav atļauti do-while ciklā"
+            },
+            0
+        ));
+
+        questions.add(new Question(
+            "Kāda būs mainīgā y vērtība pēc šāda cikla izpildes?\nint y = 10; do { y -= 2; } while (y > 5);",
+            new String[] {
+                "4",
+                "6",
+                "8",
+                "10"
+            },
+            0
+        ));
+
+        return questions;
+    }
 }
+
+
