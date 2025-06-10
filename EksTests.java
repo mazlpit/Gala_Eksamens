@@ -56,4 +56,59 @@ public class EksTests {
             "Katram jautājumam ir 4 atbilžu varianti. Izvēlies pareizo!",
             "Cikls ar pēcnosacījumu Tests", 
             JOptionPane.INFORMATION_MESSAGE);
+            for (int i = 0; i < questions.size(); i++) {
+            Question currentQuestion = questions.get(i);
+            currentQuestion.shuffleAnswers();  // Sajauc atbildes
+
+            // Sagatavo atbilžu opcijas dialogam
+            String[] options = currentQuestion.answers.toArray(new String[0]);
+            // Parāda jautājumu un atbildes opcijas
+            int response = JOptionPane.showOptionDialog(null,
+                (i + 1) + ". " + currentQuestion.question,
+                "Jautājums " + (i + 1) + " no " + questions.size(),
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+
+            // Pārbauda atbildi un izvada atbilstošu ziņu
+            if (response == currentQuestion.correctAnswerIndex) {
+                JOptionPane.showMessageDialog(null,
+                    "Pareizi!",
+                    "Rezultāts",
+                    JOptionPane.INFORMATION_MESSAGE);
+                correctCount++;
+            } else {
+                JOptionPane.showMessageDialog(null,
+                    "Nepareizi! Pareizā atbilde: " + 
+                    currentQuestion.answers.get(currentQuestion.correctAnswerIndex),
+                    "Rezultāts",
+                    JOptionPane.ERROR_MESSAGE);
+                incorrectAnswers.add(currentQuestion);
+            }
+        }
+
+        // Sagatavo gala rezultātu ziņojumu
+        StringBuilder resultMessage = new StringBuilder();
+        resultMessage.append("Tests pabeigts!\n");
+        resultMessage.append("Pareizo atbilžu skaits: ").append(correctCount)
+                    .append(" no ").append(questions.size()).append("\n");
+
+        // Ja ir nepareizas atbildes, izvada arī tās
+        if (!incorrectAnswers.isEmpty()) {
+            resultMessage.append("\nJautājumi, uz kuriem atbildēji nepareizi:\n");
+            for (Question q : incorrectAnswers) {
+                resultMessage.append("\n- ").append(q.question);
+                resultMessage.append("\n  Pareizā atbilde: ")
+                            .append(q.answers.get(q.correctAnswerIndex)).append("\n");
+            }
+        }
+
+        // Parāda gala rezultātu dialogu
+        JOptionPane.showMessageDialog(null,
+            resultMessage.toString(),
+            "Gala rezultāti",
+            JOptionPane.INFORMATION_MESSAGE);
+    }
 }
